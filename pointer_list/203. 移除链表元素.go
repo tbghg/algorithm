@@ -13,19 +13,16 @@ type ListNode struct {
 }
 
 func removeElements(head *ListNode, val int) *ListNode {
-	// 1. 哨兵节点
-	sentinel := &ListNode{Next: head}
-	// 2. 前驱节点
-	prev := sentinel
-	// 3. 当前节点
-	cur := head
-	for cur != nil {
-		if cur.Val == val {
-			prev.Next = cur.Next
+	// 虚拟节点/哨兵节点
+	dummy := &ListNode{Next: head}
+	// 前驱节点从哨兵节点出发，查看下一个节点是不是nil
+	pre := dummy
+	for pre.Next != nil {
+		if pre.Next.Val == val {
+			pre.Next = pre.Next.Next
 		} else {
-			prev = cur
+			pre = pre.Next
 		}
-		cur = cur.Next
 	}
-	return sentinel.Next
+	return dummy.Next
 }
