@@ -15,7 +15,8 @@ func searchInsert(nums []int, target int) int {
 	return l
 }
 
-/*func searchInsert(nums []int, target int) int {
+/*
+func searchInsert(nums []int, target int) int {
 	low,heigh := 0,len(nums)-1
 	for low <= heigh {
 		middle := (low+heigh)/2
@@ -28,4 +29,5 @@ func searchInsert(nums []int, target int) int {
 		}
 	}
 	return low
-}*/
+}
+*/

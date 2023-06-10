@@ -2,20 +2,20 @@
 
 【重点】一般在出现以下特性时考虑二分查找
 
-1. 待查找的数组有序或者部分有序
-2. 要求时间复杂度低于O(n)，或者直接要求时间复杂度为O(log n)
+1. 【有序】待查找的数组有序或者部分有序
+2. 【时间复杂度】要求时间复杂度低于O(n)，或者直接要求时间复杂度为O(log n)
 
 需要注意的是一旦数据中有重复元素，使用二分查找法返回的元素下标可能不是唯一的
 
 ## 写法一
-我们定义 target 是在一个在左闭右闭的区间里，也就是[left, right] 。
+定义 target 是在一个在左闭右闭的区间里，也就是`[left, right]`
 
-区间的定义这就决定了二分法的代码应该如何写，因为定义target在[left, right]区间，所以有如下两点：
+区间的定义这就决定了二分法的代码应该如何写，因为定义target在`[left, right]`区间，所以有如下两点：
 
-while (left <= right) 要使用 <= ，因为left == right是有意义的，所以使用 <=
+`while (left <= right)` 要使用 <= ，因为`left == right`是有意义的，所以使用 <=
 if (nums[middle] > target) right 要赋值为 middle - 1，因为当前这个nums[middle]一定不是target，那么接下来要查找的左区间结束下标位置就是 middle + 1
 
-**最后的l和r，对应的是**
+**mid一致没找到，最后的l和r，对应的是**
 1. l:比target大的位置
 2. r:比target小的位置
 
@@ -29,12 +29,12 @@ if (nums[middle] < target) left 更新为 middle + 1，因为左侧与右侧不�
 
 ## Go中自带的二分查找
 
-// 找出target在a切片中的索引下标，如果没有就返回要插入的地方
-
+```go
+// 找出target在a切片中的索引下标，如果没有就返回要插入的地方(大于等于target的最小索引)
 sort.SearchInts(a,target)
 
 // 返回 [0， n) 中 f(i) 为真的最小索引 i
 // 即：满足函数的最小位置
 // 第一个参数是切片的长度，第二个是要满足的函数
-
 sort.Search(len(a), func(i int) bool {})
+```
