@@ -1,4 +1,4 @@
-解决链表相关的题目，一般会用到哨兵/虚拟节点，如`dummy := &ListNode{Next: head}`
+解决链表相关的题目，一般会用到 哨兵/虚拟节点，如`dummy := &ListNode{Next: head}`
 
 通过前驱节点进行访问，如`pre := dummy`，最后返回`dummy.Next`即可
 
